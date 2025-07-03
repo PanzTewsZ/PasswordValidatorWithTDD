@@ -2,11 +2,11 @@ package lib;
 
 public class PasswordValidator {
 
-    /**
+   /**
      * คุณจะต้องเขียน Javadoc ที่สมบูรณ์ที่นี่ในอนาคต ตรวจสอบความยากง่ายของ Password ตามระดับความยากง่ายที่กำหนดไว้
      * เพื่ออธิบายกฎการทำงานของเมธอด 
-     * @param รับค่า 
-     * @return ส่งค่า 
+     * @param รับค่าจาก String มาตรวจสอบว่ามีค่าเป็น STRONG MEDIUM WEAK หรือ INVALID จาก ตัวเเปร count 
+     * @return ส่งค่า PasswordStrengh เป็น STRONG MEDIUM WEAK หรือ INVALID
      */
     // TODO: แก้ไข return type ของเมธอดนี้ให้ถูกต้อง
     public static PasswordStrength validate(String password) { // Function Type ให้เป็น PasswordStrength 
@@ -14,14 +14,12 @@ public class PasswordValidator {
         // ...
         if (password == null || password.length()<8) 
             return PasswordStrength.INVALID;
-
             
         boolean lowerletter = false;
         boolean Upperletter = false;
         boolean Digits = false;
         boolean Special = false;
 
-       
         for (char c : password.toCharArray()){
             if (Character.isLowerCase(c)) {
                lowerletter = true;
@@ -47,13 +45,5 @@ public class PasswordValidator {
         } else {
             return PasswordStrength.WEAK;
         }
-        /*if (lowerletter && Upperletter && Digits && Special) {
-            return PasswordStrength.STRONG;
-        } else if (lowerletter && Upperletter) {
-            return PasswordStrength.MEDIUM;
-        } else {
-            return PasswordStrength.WEAK;
-        }
-            */
     }
 }

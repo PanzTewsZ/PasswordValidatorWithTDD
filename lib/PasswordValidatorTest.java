@@ -14,7 +14,7 @@ public class PasswordValidatorTest{
         }
 
        
-        // Test Case 2 ทั้งหมดเล็กจะ WEAK
+        // Test Case 2 ตัวอักษรเล็ทั้งหมดจะ WEAK
         PasswordStrength result2 = PasswordValidator.validate("qwertuyi");
         if (result2 == PasswordStrength.WEAK) {
             System.out.println("Test Case 2 Passed: password is WEAK.");
@@ -22,7 +22,7 @@ public class PasswordValidatorTest{
             System.out.println("Test Case 2 FAILED: Expected WEAK but got " + result2);
         }
 
-        // Test Case 3 มีทั้งตัวอักษรใหญ่เเละเล็ก 
+        // Test Case 3 มีทั้งตัวอักษรใหญ่,เล็ก เเละมีตัวเลขจะ MEDIUM
         PasswordStrength result3 = PasswordValidator.validate("Patchatapon1");
         if (result3 == PasswordStrength.MEDIUM) {
             System.out.println("Test Case 3 Passed: password is MEDIEM.");
@@ -30,7 +30,7 @@ public class PasswordValidatorTest{
             System.out.println("Test Case 3 FAILED: Expected MEDIUM but got " + result3);
         }
 
-        // Test Case 4
+        // Test Case 4 มีทั้งหมด 4 กรณีจะเป็น STRONG
         PasswordStrength result4 = PasswordValidator.validate("QWwertyu123-");
         if (result4 == PasswordStrength.STRONG) {
             System.out.println("Test Case 4 Passed: password is STRONG.");
